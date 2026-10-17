@@ -13,3 +13,8 @@ main:
     addi t2, t2, 1       # i++
     j    loop            # back to the test
 done:
+    mv   a0, t1          # a0 = sum
+    li   a7, 1           # ecall 1 = print integer
+    ecall
+    li   a7, 10          # ecall 10 = exit
+    ecall
