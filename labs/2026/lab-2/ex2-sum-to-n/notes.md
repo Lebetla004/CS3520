@@ -1,15 +1,12 @@
-.data
-N:  .word 10
+# Exercise 2: sum of the first N integers
 
-.text
-main:
-    la   t3, N
-    lw   t0, 0(t3)      # t0 = N
-    li   t1, 0          # sum = 0
-    li   t2, 1          # i = 1
-    loop:
-    bgt  t2, t0, done    # if i > N, exit the loop
-    add  t1, t1, t2      # sum = sum + i
-    addi t2, t2, 1       # i++
-    j    loop            # back to the test
-done:
+Adds 1 through N using a counted loop and prints the total (N = 10 gives 55).
+
+| Register | Holds |
+|----------|-------|
+| t0       |   N   |
+| t1       |  sum  |
+| t2       |   i   |
+| t3        | address of N (used only to load it) |
+
+Harder than expected: working out that i <= N becomes bgt as the exit test.
